@@ -1,0 +1,35 @@
+{% extends "predictions/index.html" %}
+{% load static %}
+{% block demand_forecastingactive %}active{% endblock demand_forecastingactive %}
+{% block css %}
+<style>
+    #chat-reply {
+        margin-top: 20px;
+    }
+</style>
+{% endblock css %}
+{% block body %}
+<div class="container mt-5">
+    <h1>Demand Forecasting</h1>
+    <form method="post">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="product_name" class="form-label">Product Name</label>
+        <input type="text" class="form-control" id="product_name" name="product_name">
+      </div>
+      <div class="mb-3">
+        <label for="sales_date" class="form-label">Sales Date</label>
+        <input type="date" class="form-control" id="sales_date" name="sales_date">
+      </div>
+      <div class="mb-3">
+        <label for="promotion" class="form-label">Promotion</label>
+        <input type="checkbox" class="form-check-input" id="promotion" name="promotion">
+      </div>
+      <div class="mb-3">
+        <label for="season" class="form-label">Season</label>
+        <input type="text" class="form-control" id="season" name="season">
+      </div>
+      <button type="submit" class="btn btn-primary">Forecast</button>
+    </form>
+  </div>
+{% endblock body %}
